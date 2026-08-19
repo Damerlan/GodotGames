@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bd870wm4xig7h"]
+
+[ext_resource type="Script" uid="uid://c5iya2dwhdeci" path="res://scenes/main_scene.gd" id="1_7ykc4"]
+[ext_resource type="Texture2D" uid="uid://duxrifq0vw2rk" path="res://assets/asfalto02.svg" id="2_7ykc4"]
+[ext_resource type="Texture2D" uid="uid://b54mf27pvjb71" path="res://assets/CarRed.svg" id="2_pw63i"]
+[ext_resource type="Script" uid="uid://bhvdb0ppnbxm8" path="res://scenes/jogador.gd" id="3_c16ls"]
+[ext_resource type="PackedScene" uid="uid://ck2hgt3jy27mo" path="res://scenes/car_adiv.tscn" id="4_pu3yx"]
+[ext_resource type="PackedScene" uid="uid://dtbb0bark3g87" path="res://scenes/obis_estatico.tscn" id="5_gubc5"]
+[ext_resource type="PackedScene" uid="uid://tk0e2jo28na0" path="res://scenes/spawner_manager.tscn" id="7_18nlu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ykc4"]
+radius = 36.0
+height = 158.0
+
+[node name="MainScene" type="Node2D" unique_id=746736165]
+script = ExtResource("1_7ykc4")
+
+[node name="Pista" type="Parallax2D" parent="." unique_id=288617440]
+scroll_offset = Vector2(297, 393)
+repeat_size = Vector2(0, 269.94)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Pista" unique_id=1004615834]
+texture = ExtResource("2_7ykc4")
+
+[node name="Jogador" type="Area2D" parent="." unique_id=1282773948]
+position = Vector2(240, 547)
+script = ExtResource("3_c16ls")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jogador" unique_id=1099371487]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_pw63i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador" unique_id=763744617]
+shape = SubResource("CapsuleShape2D_7ykc4")
+
+[node name="SpawnerManager" parent="." unique_id=1507433663 instance=ExtResource("7_18nlu")]
+position = Vector2(306, -32)
+cena_carro = ExtResource("4_pu3yx")
+cena_obstaculo = ExtResource("5_gubc5")
+
+[connection signal="area_entered" from="Jogador" to="Jogador" method="_on_area_entered"]

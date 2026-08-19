@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dtbb0bark3g87"]
+
+[ext_resource type="Script" uid="uid://d2dqv0iojhyj2" path="res://scenes/obis_estatico.gd" id="1_rn61q"]
+[ext_resource type="Texture2D" uid="uid://bjbw1d6rwdwox" path="res://assets/obRole.svg" id="2_lcfy5"]
+[ext_resource type="Texture2D" uid="uid://epus0dgqj7lv" path="res://assets/obOil.svg" id="3_lcfy5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_escs2"]
+radius = 32.01562
+
+[node name="obisEstatico" type="Area2D" unique_id=1963487844]
+script = ExtResource("1_rn61q")
+textura_buraco = ExtResource("2_lcfy5")
+textura_oleo = ExtResource("3_lcfy5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1663892752]
+texture = ExtResource("2_lcfy5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=294474662]
+shape = SubResource("CircleShape2D_escs2")
