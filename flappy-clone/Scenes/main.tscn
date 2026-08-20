@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cqrrcmhsyfyaq"]
+
+[ext_resource type="Script" uid="uid://cfoiubp6qplu5" path="res://Scenes/main.gd" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bwexs35ok0y71" path="res://Scenes/bird.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bg0817bmw688j" path="res://Scenes/pipe.tscn" id="2_8gbba"]
+
+[node name="Main" type="Node2D" unique_id=1866243870]
+script = ExtResource("1_8gbba")
+pipe_scene = ExtResource("2_8gbba")
+
+[node name="Bird" parent="." unique_id=1527330393 instance=ExtResource("1_bo1nx")]
+position = Vector2(40, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=76486477]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=627416300]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PipeTimer" type="Timer" parent="." unique_id=868693798]

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bg0817bmw688j"]
+
+[ext_resource type="Script" uid="uid://ccr4n718bo02b" path="res://Scenes/pipe.gd" id="1_hnit7"]
+[ext_resource type="Texture2D" uid="uid://bijd4jr15k00t" path="res://Assets/Flappy_Bird_assets by kosresetr55/Game Objects/pipe-green.png" id="1_n21g0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(46, 318)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(45, 317)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnit7"]
+size = Vector2(20, 234)
+
+[node name="Pipe" type="Node2D" unique_id=174465232]
+script = ExtResource("1_hnit7")
+
+[node name="TopPipe" type="Area2D" parent="." unique_id=540925998]
+position = Vector2(0, -436)
+
+[node name="Sprite2D" type="Sprite2D" parent="TopPipe" unique_id=201702491]
+rotation = 3.1415927
+texture = ExtResource("1_n21g0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe" unique_id=117525502]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="BottomPipe" type="Area2D" parent="." unique_id=801666759]
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomPipe" unique_id=1126861750]
+texture = ExtResource("1_n21g0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe" unique_id=110611882]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="ScoreArea" type="Area2D" parent="." unique_id=227066923]
+position = Vector2(0, -175)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=405466915]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hnit7")
+
+[connection signal="body_entered" from="TopPipe" to="." method="_on_top_pipe_body_entered"]
+[connection signal="body_entered" from="BottomPipe" to="." method="_on_bottom_pipe_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dtxivjhwixi6v"
+path="res://.godot/imported/die.ogg-769b0cde5820547dc20d0a0ec1ff5ffa.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Flappy_Bird_assets by kosresetr55/Sound Efects/die.ogg"
+dest_files=["res://.godot/imported/die.ogg-769b0cde5820547dc20d0a0ec1ff5ffa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

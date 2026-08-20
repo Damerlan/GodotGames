@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bwexs35ok0y71"]
+
+[ext_resource type="Texture2D" uid="uid://yjwka5n375e4" path="res://Assets/Flappy_Bird_assets by kosresetr55/Game Objects/yellowbird-midflap.png" id="1_i8bdw"]
+[ext_resource type="Script" uid="uid://c1or8re651852" path="res://Scenes/bird.gd" id="1_mcegt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bo1nx"]
+radius = 12.0
+
+[node name="Bird" type="CharacterBody2D" unique_id=1527330393]
+script = ExtResource("1_mcegt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1802243253]
+texture = ExtResource("1_i8bdw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450247443]
+shape = SubResource("CircleShape2D_bo1nx")
