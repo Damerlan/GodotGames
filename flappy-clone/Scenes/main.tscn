@@ -3,10 +3,26 @@
 [ext_resource type="Script" uid="uid://cfoiubp6qplu5" path="res://Scenes/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bwexs35ok0y71" path="res://Scenes/bird.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bg0817bmw688j" path="res://Scenes/pipe.tscn" id="2_8gbba"]
+[ext_resource type="Texture2D" uid="uid://dt5bx20qygwbg" path="res://Assets/Flappy_Bird_assets by kosresetr55/Game Objects/background-day.png" id="3_jjvhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(767, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(736, 20)
 
 [node name="Main" type="Node2D" unique_id=1866243870]
 script = ExtResource("1_8gbba")
 pipe_scene = ExtResource("2_8gbba")
+
+[node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=1019286595]
+repeat_size = Vector2(288, 0)
+autoscroll = Vector2(-50, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundParallax" unique_id=2010460069]
+position = Vector2(0, 140)
+texture = ExtResource("3_jjvhh")
 
 [node name="Bird" parent="." unique_id=1527330393 instance=ExtResource("1_bo1nx")]
 position = Vector2(40, 0)
@@ -17,4 +33,41 @@ position = Vector2(40, 0)
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="GameOverMenu" type="Control" parent="CanvasLayer" unique_id=1346618040]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 237.0
+offset_top = 96.0
+offset_right = 277.0
+offset_bottom = 136.0
+
+[node name="HighScoreLabel" type="Label" parent="CanvasLayer/GameOverMenu" unique_id=361289375]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Pontos"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverMenu" unique_id=1224334119]
+layout_mode = 0
+offset_top = 42.0
+offset_right = 8.0
+offset_bottom = 50.0
+text = "Reiniciar"
+
 [node name="PipeTimer" type="Timer" parent="." unique_id=868693798]
+
+[node name="LimiteTop" type="StaticBody2D" parent="." unique_id=102336028]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteTop" unique_id=893885805]
+position = Vector2(263.5, -44)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="LimiteBottom" type="StaticBody2D" parent="." unique_id=750124958]
+position = Vector2(0, 353)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteBottom" unique_id=57978005]
+position = Vector2(277, 0)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[connection signal="pressed" from="CanvasLayer/GameOverMenu/RestartButton" to="." method="_on_restart_button_pressed"]

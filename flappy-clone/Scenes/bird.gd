@@ -21,6 +21,14 @@ func _physics_process(delta: float) -> void:
  
 	# Aplica o movimento e detecta colisões com chão/canos
 	var collided = move_and_slide()
+	
+	#aplicando rotação ao sprite
+	# Inclina o pássaro para cima ao subir e para baixo ao cair
+	if velocity.y < 0:
+		rotation = deg_to_rad(-30)
+	else:
+		rotation = lerp_angle(rotation, deg_to_rad(70), 0.1)
+	
 	if collided and is_live:
 		die()
 	

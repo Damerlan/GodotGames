@@ -21,6 +21,10 @@ window/size/viewport_width=576
 window/size/viewport_height=324
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+pipes=""
+
 [importer_defaults]
 
 svg={
@@ -29,6 +33,10 @@ svg={
 "compress": true,
 "saturation": 1.0
 }
+
+[layer_names]
+
+2d_physics/layer_1="Chão"
 
 [physics]
 

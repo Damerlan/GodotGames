@@ -12,7 +12,7 @@ size = Vector2(45, 317)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnit7"]
 size = Vector2(20, 234)
 
-[node name="Pipe" type="Node2D" unique_id=174465232]
+[node name="Pipe" type="Node2D" unique_id=174465232 groups=["pipes"]]
 script = ExtResource("1_hnit7")
 
 [node name="TopPipe" type="Area2D" parent="." unique_id=540925998]
