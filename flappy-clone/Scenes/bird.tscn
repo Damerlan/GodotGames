@@ -1,16 +1,109 @@
 [gd_scene format=3 uid="uid://bwexs35ok0y71"]
 
-[ext_resource type="Texture2D" uid="uid://yjwka5n375e4" path="res://Assets/Flappy_Bird_assets by kosresetr55/Game Objects/yellowbird-midflap.png" id="1_i8bdw"]
 [ext_resource type="Script" uid="uid://c1or8re651852" path="res://Scenes/bird.gd" id="1_mcegt"]
+[ext_resource type="Texture2D" uid="uid://dnlemjt86pgdh" path="res://Assets/NyanCat/Nyan2.svg" id="2_oc6qe"]
+[ext_resource type="Texture2D" uid="uid://bcrlp4g7xuxoi" path="res://Assets/NyanCat/Nyan1.svg" id="3_2gbwe"]
+[ext_resource type="Script" uid="uid://bxnmei28umrb4" path="res://Scenes/rainbow_trail.gd" id="3_om1ab"]
+[ext_resource type="Texture2D" uid="uid://b4aa8xuecgu0e" path="res://Assets/NyanCat/blackcokie2.svg" id="3_rr33m"]
+[ext_resource type="Texture2D" uid="uid://2tp5os6kgil4" path="res://Assets/NyanCat/Nyan3.svg" id="4_1xutp"]
+[ext_resource type="Texture2D" uid="uid://cufhiwga0wpbj" path="res://Assets/NyanCat/blackcokie1.svg" id="4_xf4a6"]
+[ext_resource type="Texture2D" uid="uid://dy4ce6q0ck2e1" path="res://Assets/NyanCat/blackcokie3.svg" id="5_pfwoh"]
+[ext_resource type="Texture2D" uid="uid://dm7pfp6he5nub" path="res://Assets/NyanCat/NyanCokie1.svg" id="8_n8o4c"]
+[ext_resource type="Texture2D" uid="uid://cp32w4aw777sl" path="res://Assets/NyanCat/NyanCokie2.svg" id="9_61cv0"]
+[ext_resource type="Texture2D" uid="uid://dgsikotfih2ns" path="res://Assets/NyanCat/NyanCokie3.svg" id="10_o08xy"]
+[ext_resource type="Texture2D" uid="uid://dqr338jy8loup" path="res://Assets/NyanCat/rastro3.svg" id="11_n8o4c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bo1nx"]
-radius = 12.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8o4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1xutp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2gbwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oc6qe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf4a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rr33m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xf4a6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pfwoh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ktp83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_n8o4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_61cv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o08xy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8o4c"]
+radius = 9.999168
+height = 40.022476
 
 [node name="Bird" type="CharacterBody2D" unique_id=1527330393]
 script = ExtResource("1_mcegt")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1802243253]
-texture = ExtResource("1_i8bdw")
+[node name="Skin01" type="AnimatedSprite2D" parent="." unique_id=320816630]
+z_index = 1
+position = Vector2(-6.0000005, 0)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_n8o4c")
+autoplay = "default"
+frame_progress = 0.95853144
+
+[node name="Skin02" type="AnimatedSprite2D" parent="." unique_id=1150636474]
+visible = false
+z_index = 1
+position = Vector2(-6.0000005, 0)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_xf4a6")
+autoplay = "default"
+
+[node name="Skin03" type="AnimatedSprite2D" parent="." unique_id=459848914]
+visible = false
+z_index = 1
+position = Vector2(-6.0000005, 0)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_ktp83")
+autoplay = "default"
+frame_progress = 0.07024976
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450247443]
-shape = SubResource("CircleShape2D_bo1nx")
+z_index = 1
+rotation = 1.5578954
+shape = SubResource("CapsuleShape2D_n8o4c")
+
+[node name="RainbowTrail" type="Line2D" parent="." unique_id=329423463]
+position = Vector2(7, -3)
+width = 20.0
+texture = ExtResource("11_n8o4c")
+texture_mode = 1
+script = ExtResource("3_om1ab")

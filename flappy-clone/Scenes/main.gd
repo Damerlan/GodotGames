@@ -13,6 +13,7 @@ extends Node2D
 #background
 @onready var parallax_2d: Parallax2D = $BackgroundParallax
 
+@onready var parrallax_2d2: Parallax2D = $GroundParallax
 
 var high_score: int = 0
 var score: int = 0
@@ -42,6 +43,8 @@ func _on_bird_died() -> void:
 	
 	# Para o movimento automático do Parallax2D
 	parallax_2d.autoscroll = Vector2.ZERO
+	# Para o movimento automático do Parallax2D2
+	parrallax_2d2.autoscroll = Vector2.ZERO
 	
 	# Para o movimento de todos os canos existentes na tela
 	get_tree().call_group("pipes", "set_process", false)

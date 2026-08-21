@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://cfoiubp6qplu5" path="res://Scenes/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bwexs35ok0y71" path="res://Scenes/bird.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bg0817bmw688j" path="res://Scenes/pipe.tscn" id="2_8gbba"]
-[ext_resource type="Texture2D" uid="uid://dt5bx20qygwbg" path="res://Assets/Flappy_Bird_assets by kosresetr55/Game Objects/background-day.png" id="3_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://dgapoaas28qp1" path="res://Assets/NyanCat/bgProvisorio2.svg" id="3_kry3j"]
+[ext_resource type="Texture2D" uid="uid://dmppdykoelwqu" path="res://Assets/NyanCat/base01.svg" id="5_kry3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(767, 20)
@@ -22,10 +23,10 @@ repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundParallax" unique_id=2010460069]
 position = Vector2(0, 140)
-texture = ExtResource("3_jjvhh")
+texture = ExtResource("3_kry3j")
 
 [node name="Bird" parent="." unique_id=1527330393 instance=ExtResource("1_bo1nx")]
-position = Vector2(40, 0)
+position = Vector2(138, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=76486477]
 
@@ -69,5 +70,15 @@ position = Vector2(0, 353)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteBottom" unique_id=57978005]
 position = Vector2(277, 0)
 shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="GroundParallax" type="Parallax2D" parent="." unique_id=1672907889]
+repeat_size = Vector2(127, 0)
+autoscroll = Vector2(-150, 0)
+repeat_times = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="GroundParallax" unique_id=1183801814]
+position = Vector2(44, 346)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_kry3j")
 
 [connection signal="pressed" from="CanvasLayer/GameOverMenu/RestartButton" to="." method="_on_restart_button_pressed"]

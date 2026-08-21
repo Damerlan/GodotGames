@@ -25,15 +25,17 @@ func _physics_process(delta: float) -> void:
 	#aplicando rotação ao sprite
 	# Inclina o pássaro para cima ao subir e para baixo ao cair
 	if velocity.y < 0:
-		rotation = deg_to_rad(-30)
+		rotation = deg_to_rad(-10)
 	else:
-		rotation = lerp_angle(rotation, deg_to_rad(70), 0.1)
+		rotation = lerp_angle(rotation, deg_to_rad(50), 0.1)
 	
 	if collided and is_live:
 		die()
 	
 func die() -> void:
+	
 	if not is_live:
 		return
 	is_live = false
+	$Skin01.stop()
 	died.emit()
